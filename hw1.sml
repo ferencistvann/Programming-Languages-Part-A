@@ -41,9 +41,10 @@ fun dates_in_month (xs : (int * int * int) list, m : int) =
     else dates_in_month (tl xs, m)
 			
 	
-(* (Listof Date) (Listof Integer) -> (Listof Date) *)
-(* Return a list of dates from argument dates that are in any of the argument months *)
-(* ASSUME list of months has no number repeated *)
+(* Write a function dates_in_months that takes a list of dates and a list of months (i.e., an int list)
+and returns a list holding the dates from the argument list of dates that are in any of the months in
+the list of months. Assume the list of months has no number repeated. Hint: Use your answer to the
+previous problem and the list-append operator @. *)
 fun dates_in_months (xs : (int * int * int) list, ms : int list) =
     if null ms
     then []	
