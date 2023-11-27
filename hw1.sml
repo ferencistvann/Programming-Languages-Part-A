@@ -74,23 +74,11 @@ fun date_to_string (d : int * int * int) =
     end
 
 
-(* Unfortunately the funtion below can not be used in the next excercise
-(* Integer (Listof Integer) -> Integer *)
-(* Read the homework pdf to see what the function does *)
-fun number_before_reaching_sum (sum_0 : int, xs_0 : int list) =
-    let
-	fun number_before_reaching_sum (sum : int, xs : int list, current_number : int) =
-	    if (current_number * (current_number + 1) div 2) >= sum
-	    then current_number - 1
-	    else number_before_reaching_sum (sum, xs, (current_number + 1))
-    in
-	number_before_reaching_sum (sum_0, xs_0, 1)
-    end
-*)	
-
-
-(* Integer (Listof Integer) -> Integer *)
-(* Read the homework pdf to see what the function does *)
+(* Write a function number_before_reaching_sum that takes an int called sum, which you can assume
+is positive, and an int list, which you can assume contains all positive numbers, and returns an int.
+You should return an int n such that the first n elements of the list add to less than sum, but the first
+n + 1 elements of the list add to sum or more. Assume the entire list sums to more than the passed in
+value; it is okay for an exception to occur if this is not the case. *)
 fun number_before_reaching_sum (sum : int, xs_0 : int list) =
     let
 	fun number_before_reaching_sum (xs : int list, count : int, sum_so_far : int) =
@@ -102,8 +90,9 @@ fun number_before_reaching_sum (sum : int, xs_0 : int list) =
     end
 
 
-(* Integer -> Integer *)
-(* Take a day of the year (int[1, 365]), return which month it is (int[1, 12]) *)
+(* Write a function what_month that takes a day of year (i.e., an int between 1 and 365) and returns
+what month that day is in (1 for January, 2 for February, etc.). Use a list holding 12 integers and your
+answer to the previous problem. *)
 fun what_month (d : int) =
     let
 	val months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
@@ -112,52 +101,13 @@ fun what_month (d : int) =
     end
 
 
-(* Integer Integer -> (Listof Integer) *)
-(* Return an int list where 1st  element is the month of d1, 2nd is month of d1+1, last is month of d2 *)
+(* Write a function month_range that takes two days of the year day1 and day2 and returns an int list
+[m1,m2,...,mn] where m1 is the month of day1, m2 is the month of day1+1, ..., and mn is the month
+of day day2. Note the result will have length day2 - day1 + 1 or length 0 if day1>day2. *)
 fun month_range (d1 : int, d2 : int) =
     if d1 > d2
     then []
     else what_month (d1) :: month_range (d1+1, d2)
-
-
-(* Could not do on own:					
-(*
-fun oldest (xs : (int * int * int) list) =
-    if null xs
-    then NONE
-    else
-	let
-	    val tl_max = oldest (tl xs)
-	in
-	    if isSome tl_max andalso is_older (valOf tl_max, hd xs)
-	    then tl_max
-	    else SOME (hd xs)
-	end
-*)
-					
-(*
-fun oldest (xs : (int * int * int) list) =
-    if null xs
-    then NONE
-    else
-	let
-	    fun max_nonempty (xs : (int * int * int) list ) =
-		if null (tl xs)
-		then hd xs
-		else
-		    let
-			val tl_max = max_nonempty (tl xs)
-		    in
-			if is_older (hd xs, tl_max)
-			then hd xs
-			else tl_max
-		    end
-			
-	in
-	    SOME (max_nonempty (xs))
-	end
-*)	    
-	
 
 
 
