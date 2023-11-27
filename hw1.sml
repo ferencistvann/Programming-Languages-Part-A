@@ -11,8 +11,8 @@ fun is_older (d1 : int * int * int, d2 : int * int * int) =
     else false
 
 
-(* (Listof Date) Integer -> Integer *)
-(* Return how many dates in the argument list are in the argument month *)	    
+(* Write a function number_in_month that takes a list of dates and a month (i.e., an int)
+and returns how many dates in the list are in the given month. *)	    
 fun number_in_month (xs : (int * int * int) list, m : int) =
     if null xs
     then 0
