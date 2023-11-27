@@ -21,9 +21,9 @@ fun number_in_month (xs : (int * int * int) list, m : int) =
     else number_in_month (tl xs, m)
 
 			
-(* (Listof Date) (Listof Integer) -> Integer *)
-(* Return the number of argument dates that are in any of the argument months *)
-(* ASSUME list of months has no number repeated *)
+(* Write a function number_in_months that takes a list of dates and a list of months (i.e., an int list)
+and returns the number of dates in the list of dates that are in any of the months in the list of months.
+Assume the list of months has no number repeated. Hint: Use your answer to the previous problem. *)
 fun number_in_months (xs : (int * int * int) list, ms : int list) =
     if null ms
     then 0
