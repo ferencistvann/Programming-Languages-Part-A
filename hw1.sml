@@ -51,9 +51,9 @@ fun dates_in_months (xs : (int * int * int) list, ms : int list) =
     else dates_in_month (xs, hd ms) @ dates_in_months (xs, tl ms)
 
 
-(* (Listof String) Integer -> String *)
-(* Return the n-th element of the list, the hd is the 1st element *)
-(* ASSUME the list always has enough elements *)				     
+(* Write a function get_nth that takes a list of strings and an int n and returns the nth element of the
+list where the head of the list is 1st. Do not worry about the case where the list has too few elements:
+your function may apply hd or tl to the empty list in this case, which is okay *)				     
 fun get_nth (xs : string list, n : int) =
     if n = 1
     then hd xs
