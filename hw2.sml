@@ -84,8 +84,8 @@ datatype move = Discard of card | Draw
 
 exception IllegalMove
 
-(* Card -> Color *)
-(* Returns the color of the argument card *)	      
+(* Write a function card_color, which takes a card and returns its color (spades and clubs are black,
+diamonds and hearts are red). Note: One case-expression is enough. *)	      
 fun card_color c =
     case c of
 	(Clubs, _) => Black
@@ -93,8 +93,8 @@ fun card_color c =
       | _ => Red
 		 
 
-(* Card -> Rank *)
-(* Returns the value of the argument card *)
+(* Write a function card_value, which takes a card and returns its value (numbered cards have their
+number as the value, aces are 11, everything else is 10). Note: One case-expression is enough. *)
 fun card_value c =
     case c of
 	(_, Ace) => 11
@@ -102,8 +102,9 @@ fun card_value c =
       | _ => 10
 
 
-(* (Card list) Card Exception -> (Card list) or Exception *)	 
-(* Removes the argument card (1st occurence) from the argument list (if card not present raise exception) *)	  
+(* Write a function remove_card, which takes a list of cards cs, a card c, and an exception e. It returns a
+list that has all the elements of cs except c. If c is in the list more than once, remove only the first one.
+If c is not in the list, raise the exception e. You can compare cards with =. *)	  
 fun remove_card (cs, c, ex) =
     let
 	fun helper (cs, removed, rsf) =
@@ -119,8 +120,9 @@ fun remove_card (cs, c, ex) =
     end
 
 
-(* (Card list) -> Boolean *)
-(* Returns true if all cards are the same color else false *)
+(* Write a function all_same_color, which takes a list of cards and returns true if all the cards in the
+list are the same color. Hint: An elegant solution is very similar to one of the functions using nested
+pattern-matching in the lectures *)
 fun all_same_color cs =
     case cs of
 	[] => true
@@ -130,8 +132,9 @@ fun all_same_color cs =
 		       
 
 
-(* (Card list) -> Integer *)
-(* Sums up the values of the argument cards *)
+(* Write a function sum_cards, which takes a list of cards and returns the sum of their values. Use a locally
+defined helper function that is tail recursive. (Calls use a constant amount of stack space is a
+requirement for this problem.) *)
 fun sum_cards cs =
     let
 	fun helper (cs, rsf) =
