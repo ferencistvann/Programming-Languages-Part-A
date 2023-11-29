@@ -146,8 +146,8 @@ fun sum_cards cs =
     end
 	
 	
-(* (Card list) Integer -> Integer *)
-(* Calculates the score as described in the pdf *)
+(* Write a function score, which takes a card list (the held-cards) and an int (the goal) and computes
+the score as described above. *)
 fun score (cs, g) =
     let
 	val sum = sum_cards cs
@@ -161,17 +161,4 @@ fun score (cs, g) =
 	then (g-sum) div 2
 	else g-sum
     end
-	
-
-(* (Card list) (Move list) Integer -> Integer *)
-(* Processes the moves in the move list and calculates the score at the end *)
-fun officiate (cs, ms, g) =
-    let
-	fun game (held_cards, remaining_cards, moves) =
-	    
-    in
-	game ([], cs, ms)
-    end
-	
-
 	
