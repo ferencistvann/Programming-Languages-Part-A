@@ -41,10 +41,8 @@ fun get_substitutions1 (strss, str) =
 		      | NONE => get_substitutions1 (xs', str)
 							     
 								    
-(* ((String list) list) String -> (String list) *)					   
-(* Returns all the strings that equal str and are in any of the elements in strss *)
-(* ASSUME each list in strss has no repeats *)
-(* Same as above just tail recursive *)
+(* Write a function get_substitutions2, which is like get_substitutions1 except it uses a tail-recursive
+local helper function. *)
 fun get_substitutions2 (strss, str) =
     let
 	fun helper (strss, acc) =
@@ -58,8 +56,13 @@ fun get_substitutions2 (strss, str) =
     end
 	
 
-(* ((String list) list) (Full Name) -> ((Full Name) list) *)
-(* Returns all the full names by substituting first name *)
+(* Write a function similar_names, which takes a string list list of substitutions (as in parts (b) and
+(c)) and a full name of type {first:string,middle:string,last:string} and returns a list of full
+names (type {first:string,middle:string,last:string} list). The result is all the full names you
+can produce by substituting for the first name (and only the first name) using substitutions and parts (b)
+or (c). The answer should begin with the original name (then have 0 or more other names).
+Do not eliminate duplicates from the answer. Hint: Use a local helper function. Sample solution is
+around 10 lines.*)
 fun similar_names (strss, {first=a, middle=b, last=c}) =
     let
 	fun substitute (strs, {first=a, middle=b, last=c}) =
