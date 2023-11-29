@@ -29,9 +29,10 @@ fun all_except_option (str, strs) =
     end
 
 	
-(* ((String list) list) String -> (String list) *)					   
-(* Returns all the strings that equal str and are in any of the elements in strss *)
-(* ASSUME each list in strss has no repeats *)
+(* Write a function get_substitutions1, which takes a string list list (a list of list of strings, the
+substitutions) and a string s and returns a string list. The result has all the strings that are in
+some list in substitutions that also has s, but s itself should not be in the result.
+ Assume each list in substitutions has no repeats. *)
 fun get_substitutions1 (strss, str) =
     case strss of
 	[] => []
