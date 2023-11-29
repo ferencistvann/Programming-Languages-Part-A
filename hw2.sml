@@ -1,8 +1,11 @@
 fun same_string(s1 : string, s2 : string) =
     s1 = s2
-type fullname =	 {first : string, middle : string, last : string}    
-(* String (String list) -> SOME (String list) or NONE *)
-(* Returns argument list option without argument string if string is in list, else NONE *)
+type fullname =	 {first : string, middle : string, last : string}
+		     
+(* Write a function all_except_option, which takes a string and a string list. Return NONE if the
+string is not in the list, else return SOME lst where lst is identical to the argument list except the string
+is not in it. You may assume the string is in the list at most once. Use same_string, provided to you,
+to compare strings. Sample solution is around 8 lines. *)
 fun all_except_option (str, strs) =
     let
 	fun contains (strs, str) =
@@ -24,6 +27,7 @@ fun all_except_option (str, strs) =
 	then SOME (list_without_one (strs, str))
 	else NONE
     end
+
 	
 (* ((String list) list) String -> (String list) *)					   
 (* Returns all the strings that equal str and are in any of the elements in strss *)
