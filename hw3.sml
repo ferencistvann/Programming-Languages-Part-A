@@ -150,7 +150,3 @@ fun count_wild_and_variable_lengths p =
 fun count_some_var (str, p) =
     g (fn () => 0) (fn x => if str = x then 1 else 0) p
 
-
-
-
-					   
