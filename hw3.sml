@@ -83,7 +83,11 @@ in the String module. (Browse the module documentation to find the most useful f
 fun rev_string s =
     (String.implode o List.rev o String.explode) s
 	       
-   
+
+(* Write a function first_answer. The first argument should be applied to elements of the second argument in order
+until the first time it returns SOME v for some v and then v is the result of the call to first_answer.
+If the first argument returns NONE for all list elements, then first_answer should raise the exception
+NoAnswer. Hints: Sample solution is 5 lines and does nothing fancy *)
 fun first_answer f xs =
     case xs of
 	[] => raise NoAnswer
@@ -92,6 +96,12 @@ fun first_answer f xs =
 		    | NONE => first_answer f xs'
 
 
+(* Write a function all_answers. The first argument should be applied to elements of the second
+argument. If it returns NONE for any element, then the result for all_answers is NONE. Else the
+calls to the first argument will have produced SOME lst1, SOME lst2, ... SOME lstn and the result of
+all_answers is SOME lst where lst is lst1, lst2, ..., lstn appended together (order does not matter).
+Hints: The sample solution is 8 lines. It uses a helper function with an accumulator and uses @. Note
+all_answers f [] should evaluate to SOME []. *)
 fun all_answers f xs =
     let
 	fun helper xs acc =
@@ -104,7 +114,18 @@ fun all_answers f xs =
 	helper xs []
     end
 
-	
+
+(* A function g has
+been provided to you.
+(a) Use g to define a function count_wildcards that takes a pattern and returns how many Wildcard
+patterns it contains.
+(b) Use g to define a function count_wild_and_variable_lengths that takes a pattern and returns
+the number of Wildcard patterns it contains plus the sum of the string lengths of all the variables
+in the variable patterns it contains. (Use String.size. We care only about variable names; the
+constructor names are not relevant.)
+(c) Use g to define a function count_some_var that takes a string and a pattern (as a pair) and
+returns the number of times the string appears as a variable in the pattern. We care only about
+variable names; the constructor names are not relevant. *)
 fun g f1 f2 p =
     let 
 	val r = g f1 f2 
@@ -129,12 +150,7 @@ fun count_wild_and_variable_lengths p =
 fun count_some_var (str, p) =
     g (fn () => 0) (fn x => if str = x then 1 else 0) p
 
-(*
-fun has_duplicate strs =
-    case strs of
-	[] => false
-     | x::xs' => (List.exists (fn y => y = x) xs') orelse has_duplicate xs' 
-*)
+
 
 
 					   
